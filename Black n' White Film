@@ -1,0 +1,7 @@
+img.loadPixels();
+      int j = picStart;
+      while (j<picEnd) {
+        color r = img.pixels[j];
+        float purple = (red(r)+green(r)+blue(r))/3;
+        img.pixels[j] = color(purple+50, purple+2, purple+50);
+        j=j+1;

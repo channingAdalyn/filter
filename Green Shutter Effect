@@ -1,0 +1,22 @@
+//requires a picture with a well-balanced light/dark contrast. Not too much darkness, not too much light.
+      img.loadPixels();
+      int v = picStart;
+      float b = 6800;
+      while (v<picEnd) {
+       if (b>0) { color r = img.pixels[v];
+        float black = (red(r)+green(r)+blue(r))/3;
+        img.pixels[v] = color(black*0*b, black*0*b, black*0*b);
+        v=v+1;
+
+       }
+       else {color r = img.pixels[v];
+        float green = (red(r)+green(r)+blue(r))/3;
+        img.pixels[v] = color(green+b/80-200, green+b/130-50, green+b/80-200);
+        v=v+1;
+         
+       }
+ 
+       b = b-1+.2;
+       if (b < -27000) {
+         b = 1000;}
+      }
